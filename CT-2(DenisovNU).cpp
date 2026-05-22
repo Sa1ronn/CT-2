@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
-#include <string>
 
 using namespace std;
 
