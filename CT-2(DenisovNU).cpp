@@ -8,6 +8,7 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL, "ru");
+    
     //Массивы
     srand(time(0));
 
@@ -16,15 +17,12 @@ int main() {
     for (int i = 0; i < 365; i++) {
         temp[i] = rand() % 61 - 30;
     }
-
+    
     int days[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
     string months[12] = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
-
     double avg[12];
-
     int current_day = 0;
-
+    
     for (int i = 0; i < 12; i++) {
         double sum = 0;
         for (int j = 0; j < days[i]; j++) {
@@ -34,9 +32,7 @@ int main() {
             avg[i] = sum / days[i];
         }
     }
-
     cout << "Средняя температура по месяцам:" << endl;
-
     for (int i = 0; i < 12; i++) {
         cout << months[i] << ": " << avg[i] << endl;
     }
@@ -56,9 +52,8 @@ int main() {
             min_month = i;
         }
     }
-
+    
     cout << endl;
-
     cout << "Самый теплый месяц: " << months[max_month] << " (" << max_temp << ")" << endl;
     cout << "Самый холодный месяц: " << months[min_month] << " (" << min_temp << ")" << endl;
 
@@ -93,7 +88,6 @@ int main() {
     cin >> m;
     cout << "По какое слово удалить? ";
     cin >> n;
-
     cout << "Результат: ";
 
     for (int i = 0; i < word_count; i++) {
@@ -102,7 +96,6 @@ int main() {
             cout << words[i] << " ";
         }
     }
-
     cout << endl;
 
     return 0;
