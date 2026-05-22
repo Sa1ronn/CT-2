@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL, "ru");
-    
+
     //Массивы
     srand(time(0));
 
@@ -17,12 +17,12 @@ int main() {
     for (int i = 0; i < 365; i++) {
         temp[i] = rand() % 61 - 30;
     }
-    
+
     int days[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     string months[12] = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
     double avg[12];
     int current_day = 0;
-    
+
     for (int i = 0; i < 12; i++) {
         double sum = 0;
         for (int j = 0; j < days[i]; j++) {
@@ -52,13 +52,14 @@ int main() {
             min_month = i;
         }
     }
-    
+
     cout << endl;
     cout << "Самый теплый месяц: " << months[max_month] << " (" << max_temp << ")" << endl;
     cout << "Самый холодный месяц: " << months[min_month] << " (" << min_temp << ")" << endl;
 
     //Строки
     string text = "Один два три четыре пять шесть семь восемь девять десять";
+    string newText = "";
     string words[10];
     int word_count = 0;
     string current_word = "";
@@ -89,14 +90,18 @@ int main() {
     cout << "По какое слово удалить? ";
     cin >> n;
     cout << "Результат: ";
-
-    for (int i = 0; i < word_count; i++) {
-        int position = i + 1;
-        if (position < m || position > n) {
-            cout << words[i] << " ";
+    if (0 < m && n < 11 && n > m) {
+        for (int i = 0; i < word_count; i++) {
+            int position = i + 1;
+            if (position < m || position > n) {
+                newText += words[i] + " ";
+            }
         }
     }
-    cout << endl;
+    else {
+        cout << "Ошибка: недопустимые границы удаления"<< endl;
+    }
+    cout << newText << endl;
 
     return 0;
 }
